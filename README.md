@@ -6,6 +6,7 @@ Install Packages
 pip install pillow
 pip install tk
 pip install future
+pip install customtkinter
 ```
 ## Run & Debug
 Clone this project

@@ -37,7 +37,7 @@ python main.py
    - Auto Verify ID Member with ID Laptop
    - Show Reciepe Return Loan 
    - Print Reciepe Return Loan
-## Other
+## Tools
 Python Version
 ```
 3.10

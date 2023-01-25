@@ -67,7 +67,7 @@ b2 = customtkinter.CTkButton(master=root, corner_radius=10, text="PENGEMBALIAN",
 b2.place(relx=0.05, rely=0.78)
 
 t5 = Label(root, text='DAFTAR PEMINJAM', font=("Arial", 16))
-t5.place(relx=0.52, rely=0.2)
+t5.place(relx=0.52, rely=0.02)
 
 # Table
 tbl = ttk.Treeview(root)
@@ -99,7 +99,7 @@ tbl.insert(parent='', index=9, iid="9", text='', values=('10', 'Intan', 'Member'
 tbl.insert(parent='', index=10, iid="10", text='', values=('11', 'Cika', 'Member', '25/01/2023', '25/01/2023'))
 tbl.insert(parent='', index=11, iid="11", text='', values=('12', 'Doni', 'Member', '25/01/2023', '25/01/2023'))
 tbl.insert(parent='', index=12, iid="12", text='', values=('113', 'Rina', 'Member', '25/01/2023', '25/01/2023'))
-tbl.place(relx=0.52, rely=0.25)
+tbl.place(relx=0.52, rely=0.06)
 
 # ##### FOOTER ##### #
 t6 = Label(root, text='Pusat Informasi', font=("Arial", 14))

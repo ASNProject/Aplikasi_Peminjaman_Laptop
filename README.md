@@ -1,6 +1,6 @@
 # Aplikasi_Peminjaman_Laptop
 
 ## Packages
-Pillow
-Tkinter
+Pillow<br/>
+Tkinter<br/>
 Future

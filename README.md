@@ -47,4 +47,4 @@ IDE
 ## Screenshot
 <img width="1281" alt="Screenshot 2023-01-25 at 20 33 46" src="https://user-images.githubusercontent.com/49858542/214578436-ca1ca13c-21b2-47d6-b4fb-1b385eceb664.png">
 <img width="1281" alt="Screenshot 2023-01-25 at 20 34 07" src="https://user-images.githubusercontent.com/49858542/214578468-4becbfe9-023f-4514-874a-d4249f8363d8.png">
-<img width="1282" alt="Screenshot 2023-01-25 at 20 34 26" src="https://user-images.githubusercontent.com/49858542/214578478-ec412569-e3ca-4d8f-be6d-ec67b57908ce.png">
+<img width="1279" alt="Screenshot 2023-01-25 at 20 49 14" src="https://user-images.githubusercontent.com/49858542/214580487-dc5c8645-d407-4a22-8a8d-10324af9e7cb.png">

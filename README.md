@@ -1,6 +1,8 @@
 # Aplikasi_Peminjaman_Laptop
 
 ## Packages
-Pillow<br/>
-Tkinter<br/>
-Future
+- Pillow: pip install pillow<br/>
+- Tkinter: pip install tk<br/>
+- Future: pip install future<br/>
+
+

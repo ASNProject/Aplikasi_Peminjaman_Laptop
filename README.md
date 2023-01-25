@@ -16,8 +16,18 @@ Run program
 ```
 python main.py
 ```
+## Features
+1. Dashboard (On Progress)
+   - List laptop loan data in table
+   - Button to show loan screen
+   - Button to show return loan screen
+   - Connect to Serial Port Device Arduino 
+2. Loan Screen (Booked)
+3. Return Loan Screen (Booked)
 ## Other
 Python Version
 ```
 3.10
 ```
+IDE
+[https://www.jetbrains.com/pycharm/](PyCharm)

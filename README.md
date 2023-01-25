@@ -12,3 +12,8 @@ Run program
 ```
 python main.py
 ```
+## Credit
+Python Version
+```
+3.10
+```

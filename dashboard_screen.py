@@ -1,3 +1,4 @@
+import os
 import tkinter
 from tkinter import *
 from PIL import ImageTk, Image
@@ -63,9 +64,16 @@ def dashboardScreen():
     # set location image
     panel2.place(relx=0.04, y=340, anchor=NW)
 
-    b1 = customtkinter.CTkButton(master=root, corner_radius=10, text="MEMINJAM", height=40, width=550)
+    def runLoanScreen():
+        os.system('python loan_screen.py')
+    b1 = customtkinter.CTkButton(master=root, corner_radius=10, text="MEMINJAM", height=40, width=550,
+                                 command=runLoanScreen)
     b1.place(relx=0.05, rely=0.7)
-    b2 = customtkinter.CTkButton(master=root, corner_radius=10, text="PENGEMBALIAN", height=40, width=550)
+
+    def runReturnLoanScreen():
+        os.system('python return_loan_screen.py')
+    b2 = customtkinter.CTkButton(master=root, corner_radius=10, text="PENGEMBALIAN", height=40, width=550,
+                                 command=runReturnLoanScreen)
     b2.place(relx=0.05, rely=0.78)
 
     t5 = Label(root, text='DAFTAR PEMINJAM', font=("Arial", 16))

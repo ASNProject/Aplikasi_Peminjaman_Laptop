@@ -7,4 +7,8 @@ pip install pillow
 pip install tk
 pip install future
 ```
-
+## Run & Debug
+Run program
+```
+python main.py
+```

@@ -30,4 +30,4 @@ Python Version
 3.10
 ```
 IDE
-[PyCharm](PyCharm](https://www.jetbrains.com/pycharm/))
+[[PyCharm](https://www.jetbrains.com/pycharm/](PyCharm)

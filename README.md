@@ -27,16 +27,16 @@ python main.py
    - Scan RFID ID Member connected with Serial Device Arduino
    - Scan RFID ID Laptop connected with Serial Device Arduino
    - Show the member active/nonactive
-   - Auto Verify ID Member with ID Laptop
-   - Show Reciepe Loan 
-   - Print Reciepe Loan
+   - Auto verify ID Member with ID Laptop
+   - Show reciepe Loan 
+   - Print reciepe Loan
 3. Return Loan Screen (On Progress)
    - Scan RFID ID Member connected with Serial Device Arduino
    - Scan RFID ID Laptop connected with Serial Device Arduino
    - Show the member active/nonactive
-   - Auto Verify ID Member with ID Laptop
-   - Show Reciepe Return Loan 
-   - Print Reciepe Return Loan
+   - Auto verify ID Member with ID Laptop
+   - Show reciepe Return Loan 
+   - Print reciepe Return Loan
 ## Tools
 Python Version
 ```

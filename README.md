@@ -23,8 +23,20 @@ python main.py
    - Button to show loan screen
    - Button to show return loan screen
    - Connect to Serial Port Device Arduino 
-2. Loan Screen (Booked)
-3. Return Loan Screen (Booked)
+2. Loan Screen (On Progress)
+   - Scan RFID ID Member connected with Serial Device Arduino
+   - Scan RFID ID Laptop connected with Serial Device Arduino
+   - Show the member active/nonactive
+   - Auto Verify ID Member with ID Laptop
+   - Show Reciepe Loan 
+   - Print Reciepe Loan
+3. Return Loan Screen (On Progress)
+   - Scan RFID ID Member connected with Serial Device Arduino
+   - Scan RFID ID Laptop connected with Serial Device Arduino
+   - Show the member active/nonactive
+   - Auto Verify ID Member with ID Laptop
+   - Show Reciepe Return Loan 
+   - Print Reciepe Return Loan
 ## Other
 Python Version
 ```

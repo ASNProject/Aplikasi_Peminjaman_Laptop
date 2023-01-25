@@ -16,7 +16,7 @@ Run program
 ```
 python main.py
 ```
-## Credit
+## Other
 Python Version
 ```
 3.10

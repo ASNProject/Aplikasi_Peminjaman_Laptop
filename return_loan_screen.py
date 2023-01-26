@@ -93,7 +93,8 @@ b3 = customtkinter.CTkButton(master=root, corner_radius=10, text="PENGEMBALIAN",
 b3.place(relx=0.73, rely=0.52)
 b4 = customtkinter.CTkButton(master=root, corner_radius=10, text="PRINT", height=40, width=270)
 b4.place(relx=0.73, rely=0.6)
-b4 = customtkinter.CTkButton(master=root, corner_radius=10, text="KEMBALI", height=40, width=270)
+b4 = customtkinter.CTkButton(master=root, corner_radius=10, text="KEMBALI", height=40, width=270,
+                             command=root.destroy)
 b4.place(relx=0.73, rely=0.85)
 
 t12 = Label(root, text='Copyright: Aplikasi Peminjaman Laptop 2023', font=("Arial", 12))

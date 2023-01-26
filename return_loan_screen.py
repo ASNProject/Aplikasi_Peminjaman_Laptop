@@ -82,14 +82,14 @@ t9.place(relx=0.75, rely=0.38)
 t10 = Label(root, text=':', font=("Arial", 12))
 t10.place(relx=0.80, rely=0.38)
 
-t11 = Label(root, text='NOTA PEMINJAMAN', font=("Arial bold", 14))
+t11 = Label(root, text='NOTA PENGEMBALIAN', font=("Arial bold", 14))
 t11.place(relx=0.05, rely=0.46)
 
 c = Canvas(root, bg="white",
            height=300, width=800)
 c.place(relx=0.05, rely=0.5)
 
-b3 = customtkinter.CTkButton(master=root, corner_radius=10, text="PINJAM", height=40, width=270)
+b3 = customtkinter.CTkButton(master=root, corner_radius=10, text="PENGEMBALIAN", height=40, width=270)
 b3.place(relx=0.73, rely=0.52)
 b4 = customtkinter.CTkButton(master=root, corner_radius=10, text="PRINT", height=40, width=270)
 b4.place(relx=0.73, rely=0.6)

@@ -44,6 +44,7 @@ Python Version
 ```
 IDE
 [PyCharm](https://www.jetbrains.com/pycharm/)
+[SQLiteStudio](https://sqlitestudio.pl)
 ## Screenshot
 <img width="1281" alt="Screenshot 2023-01-25 at 20 33 46" src="https://user-images.githubusercontent.com/49858542/214578436-ca1ca13c-21b2-47d6-b4fb-1b385eceb664.png">
 <img width="1281" alt="Screenshot 2023-01-25 at 20 34 07" src="https://user-images.githubusercontent.com/49858542/214578468-4becbfe9-023f-4514-874a-d4249f8363d8.png">

@@ -42,8 +42,9 @@ Python Version
 ```
 3.10
 ```
-IDE
-[PyCharm](https://www.jetbrains.com/pycharm/)
+IDE:
+[PyCharm](https://www.jetbrains.com/pycharm/) <br/>
+Database:
 [SQLiteStudio](https://sqlitestudio.pl)
 ## Screenshot
 <img width="1281" alt="Screenshot 2023-01-25 at 20 33 46" src="https://user-images.githubusercontent.com/49858542/214578436-ca1ca13c-21b2-47d6-b4fb-1b385eceb664.png">

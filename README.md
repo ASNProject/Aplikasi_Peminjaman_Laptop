@@ -7,6 +7,7 @@ pip install pillow
 pip install tk
 pip install future
 pip install customtkinter
+pip install pysqlite3
 ```
 ## Run & Debug
 Clone this project

@@ -1,8 +1,10 @@
+import datetime
 import tkinter
 from tkinter import *
 from PIL import ImageTk, Image
 import customtkinter
 import sqlite3
+import datetime as dt
 
 root = Tk()
 database = "database/apl_database.db"
@@ -113,6 +115,75 @@ c = Canvas(root, bg="white",
            height=300, width=800)
 c.place(relx=0.05, rely=0.5)
 
+t50 = Label(root, text='APLIKASI PEMINJAMAN LAPTOP', fg="black", bg="white", font=("Arial bold", 16))
+t50.place(relx=0.08, rely=0.55)
+t51 = Label(root, text='AKADEMI ANGKATAN UDARA YOGYAKARTA', fg="black", bg="white", font=("Arial bold", 14))
+t51.place(relx=0.08, rely=0.58)
+
+t25 = Label(root, fg="black", bg="white", text='ID', font=("Arial", 12))
+t25.place(relx=0.08, rely=0.64)
+t26 = Label(root, fg="black", bg="white", text=':', font=("Arial", 12))
+t26.place(relx=0.18, rely=0.64)
+np_id = tkinter.StringVar()
+t27 = Label(root, fg="black", bg="white", textvariable=np_id, font=("Arial", 12))
+t27.place(relx=0.19, rely=0.64)
+
+t28 = Label(root, fg="black", bg="white", text='NAMA', font=("Arial", 12))
+t28.place(relx=0.08, rely=0.67)
+t29 = Label(root, fg="black", bg="white", text=':', font=("Arial", 12))
+t29.place(relx=0.18, rely=0.67)
+np_nama = tkinter.StringVar()
+t30 = Label(root, fg="black", bg="white", textvariable=np_nama, font=("Arial", 12))
+t30.place(relx=0.19, rely=0.67)
+
+t31 = Label(root, fg="black", bg="white", text='MEMBER', font=("Arial", 12))
+t31.place(relx=0.08, rely=0.70)
+t32 = Label(root, fg="black", bg="white", text=':', font=("Arial", 12))
+t32.place(relx=0.18, rely=0.70)
+np_member = tkinter.StringVar()
+t33 = Label(root, fg="black", bg="white", textvariable=np_member, font=("Arial", 12))
+t33.place(relx=0.19, rely=0.70)
+
+t34 = Label(root, fg="black", bg="white", text='LAPTOP ID', font=("Arial", 12))
+t34.place(relx=0.08, rely=0.73)
+t35 = Label(root, fg="black", bg="white", text=':', font=("Arial", 12))
+t35.place(relx=0.18, rely=0.73)
+np_laptopid = tkinter.StringVar()
+t36 = Label(root, fg="black", bg="white", textvariable=np_laptopid, font=("Arial", 12))
+t36.place(relx=0.19, rely=0.73)
+
+t37 = Label(root, fg="black", bg="white", text='BRAND', font=("Arial", 12))
+t37.place(relx=0.08, rely=0.76)
+t38 = Label(root, fg="black", bg="white", text=':', font=("Arial", 12))
+t38.place(relx=0.18, rely=0.76)
+np_brand = tkinter.StringVar()
+t39 = Label(root, fg="black", bg="white", textvariable=np_brand, font=("Arial", 12))
+t39.place(relx=0.19, rely=0.76)
+
+t40 = Label(root, fg="black", bg="white", text='UNIT', font=("Arial", 12))
+t40.place(relx=0.08, rely=0.79)
+t41 = Label(root, fg="black", bg="white", text=':', font=("Arial", 12))
+t41.place(relx=0.18, rely=0.79)
+np_unit = tkinter.StringVar()
+t42 = Label(root, fg="black", bg="white", textvariable=np_unit, font=("Arial", 12))
+t42.place(relx=0.19, rely=0.79)
+
+t43 = Label(root, fg="black", bg="white", text='TANGGAL PINJAM', font=("Arial", 12))
+t43.place(relx=0.08, rely=0.82)
+t44 = Label(root, fg="black", bg="white", text=':', font=("Arial", 12))
+t44.place(relx=0.18, rely=0.82)
+np_tanggalpinjam = tkinter.StringVar()
+t45 = Label(root, fg="black", bg="white", textvariable=np_tanggalpinjam, font=("Arial", 12))
+t45.place(relx=0.19, rely=0.82)
+
+t46 = Label(root, fg="black", bg="white", text='TANGGAL KEMBALI', font=("Arial", 12))
+t46.place(relx=0.08, rely=0.85)
+t47 = Label(root, fg="black", bg="white", text=':', font=("Arial", 12))
+t47.place(relx=0.18, rely=0.85)
+np_tanggalkembali = tkinter.StringVar()
+t48 = Label(root, fg="black", bg="white", textvariable=np_tanggalkembali, font=("Arial", 12))
+t48.place(relx=0.19, rely=0.85)
+
 b3 = customtkinter.CTkButton(master=root, corner_radius=10, text="PINJAM", height=40, width=270)
 b3.place(relx=0.73, rely=0.52)
 b4 = customtkinter.CTkButton(master=root, corner_radius=10, text="PRINT", height=40, width=270)
@@ -121,8 +192,8 @@ b4 = customtkinter.CTkButton(master=root, corner_radius=10, text="KEMBALI", heig
                              command=root.destroy)
 b4.place(relx=0.73, rely=0.85)
 
-t25 = Label(root, text='Copyright: Aplikasi Peminjaman Laptop 2023', font=("Arial", 12))
-t25.place(relx=0.8, rely=0.96)
+t49 = Label(root, text='Copyright: Aplikasi Peminjaman Laptop 2023', font=("Arial", 12))
+t49.place(relx=0.8, rely=0.96)
 
 # #### def #### #
 idmember = tkinter.StringVar()
@@ -172,6 +243,19 @@ def scanidlaptop(rfid):
                     if laptop.get() == idmember.get():
                         if status.get() == statuslaptop.get():
                             print("Data Sesuai")
+                            date = dt.datetime.now()
+                            date_return = date + datetime.timedelta(days=7)
+                            format_date = f"{date:%d %b %Y}"
+                            format_date_return = f"{date_return:%d %b %Y}"
+                            np_tanggalpinjam.set(format_date)
+                            np_tanggalkembali.set(format_date_return)
+                            np_id.set(t7.getvar(t7.cget("textvariable")))
+                            np_nama.set(t10.getvar(t10.cget("textvariable")))
+                            np_member.set(t13.getvar(t13.cget("textvariable")))
+                            np_laptopid.set(t17.getvar(t17.cget("textvariable")))
+                            np_brand.set(t20.getvar(t20.cget("textvariable")))
+                            np_unit.set(t23.getvar(t23.cget("textvariable")))
+
                         else:
                             laptop_is_loan()
                     else:

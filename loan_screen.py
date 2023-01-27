@@ -184,7 +184,9 @@ np_tanggalkembali = tkinter.StringVar()
 t48 = Label(root, fg="black", bg="white", textvariable=np_tanggalkembali, font=("Arial", 12))
 t48.place(relx=0.19, rely=0.85)
 
-b3 = customtkinter.CTkButton(master=root, corner_radius=10, text="PINJAM", height=40, width=270)
+b3 = customtkinter.CTkButton(master=root, corner_radius=10, text="PINJAM", height=40, width=270,
+                             command=lambda: upload_data()
+                             )
 b3.place(relx=0.73, rely=0.52)
 b4 = customtkinter.CTkButton(master=root, corner_radius=10, text="PRINT", height=40, width=270)
 b4.place(relx=0.73, rely=0.6)
@@ -269,6 +271,36 @@ def scanidlaptop(rfid):
         not_member()
 
 
+def upload_data():
+    cursor = connection.cursor()
+    cursor.execute(
+        "INSERT INTO `peminjaman_data` (rfid_member, nama, member, laptop_id, brand, unit, tanggal_pinjam, "
+        "tanggal_kembali)"
+        "VALUES(?, ?, ?, ?, ?, ?, ?, ?)", (
+            int(t7.getvar(t7.cget("textvariable"))), str(t10.getvar(t10.cget("textvariable"))),
+            str(t13.getvar(t13.cget("textvariable"))), int(t17.getvar(t17.cget("textvariable"))),
+            str(t20.getvar(t20.cget("textvariable"))), int(t23.getvar(t23.cget("textvariable"))),
+            str(t45.getvar(t45.cget("textvariable"))),
+            str(t48.getvar(t48.cget("textvariable")))))
+    connection.commit()
+    done_upload()
+    # ids.set("")
+    # nama.set("")
+    # member.set("")
+    # idlaptop.set("")
+    # brand.set("")
+    # unit.set("")
+    # np_id.set("")
+    # np_nama.set("")
+    # np_member.set("")
+    # np_laptopid.set("")
+    # np_brand.set("")
+    # np_unit.set("")
+    # np_tanggalpinjam.set("")
+    # np_tanggalkembali.set("")
+    print("terkirim")
+
+
 # #### POP UP #### #
 def not_member():
     top = Toplevel(root)
@@ -326,6 +358,26 @@ def cant_loan():
     top.resizable(False, False)
     top.title("Pemberitahuan!")
     t26 = Label(top, text='Maaf verifikasi tidak sesuai!\nSilahkan periksa id member dan id laptop!',
+                font=("Arial bold", 14))
+    t26.place(relx=.5, rely=.5, anchor=CENTER)
+
+
+def done_upload():
+    top = Toplevel(root)
+
+    top_width = 320
+    top_height = 120
+    # get screen dimension
+    top_screen_width = top.winfo_screenwidth()
+    top_screen_height = top.winfo_screenheight()
+    # find the center point
+    top_center_x = int(top_screen_width / 2 - top_width / 2)
+    top_center_y = int(top_screen_height / 2 - top_height / 2)
+    # set the position of the window to the center of the screen
+    top.geometry(f'{top_width}x{top_height}+{top_center_x}+{top_center_y}')
+    top.resizable(False, False)
+    top.title("Pemberitahuan!")
+    t26 = Label(top, text='Data telah tersimpan!\nTerimakasih!',
                 font=("Arial bold", 14))
     t26.place(relx=.5, rely=.5, anchor=CENTER)
 

@@ -282,6 +282,8 @@ def upload_data():
             str(t20.getvar(t20.cget("textvariable"))), int(t23.getvar(t23.cget("textvariable"))),
             str(t45.getvar(t45.cget("textvariable"))),
             str(t48.getvar(t48.cget("textvariable")))))
+    cursor.execute("UPDATE member_data SET status=? WHERE rfid=?", ('LOAN', int(t7.getvar(t7.cget("textvariable")))))
+    cursor.execute("UPDATE laptop_data SET status=? WHERE rfid=?", ('LOAN', int(t17.getvar(t17.cget("textvariable")))))
     connection.commit()
     done_upload()
     # ids.set("")

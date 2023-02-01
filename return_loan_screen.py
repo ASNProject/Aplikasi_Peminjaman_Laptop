@@ -45,7 +45,7 @@ t3.place(relx=0.08, y=70)
 
 # ##### BODY ##### #
 b1 = customtkinter.CTkButton(master=root, corner_radius=10, text="SCAN ID CARD", height=40, width=200,
-                             command=lambda: scanidcard(234)
+                             command=lambda: scanidcard(123)
                              )
 b1.place(relx=0.08, rely=0.2)
 
@@ -77,7 +77,7 @@ t13 = Label(root, textvariable=member, font=("Arial", 12))
 t13.place(relx=0.14, rely=0.38)
 
 b2 = customtkinter.CTkButton(master=root, corner_radius=10, text="SCAN ID LAPTOP", height=40, width=200,
-                             command=lambda: scanidlaptop(123))
+                             command=lambda: scanidlaptop(321))
 b2.place(relx=0.75, rely=0.2)
 
 t14 = Label(root, text='HASIL SCAN:', font=("Arial bold", 12))

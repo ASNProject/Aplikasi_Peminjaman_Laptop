@@ -4,6 +4,7 @@ from tkinter import *
 from PIL import ImageTk, Image
 import customtkinter
 from tkinter import ttk
+import sqlite3
 
 
 def dashboardScreen():
@@ -22,7 +23,8 @@ def dashboardScreen():
     # set the position of the window to the center of the screen
     root.geometry(f'{root_width}x{root_height}+{center_x}+{center_y}')
     root.resizable(False, False)
-
+    conn = sqlite3.connect('database/apl_database.db')
+    cursor = conn.cursor()
     # ##################### UI DESIGN ##################### #
     # ##### HEADER ##### #
     # load image
@@ -81,34 +83,28 @@ def dashboardScreen():
 
     # Table
     tbl = ttk.Treeview(root)
-    tbl['columns'] = ('ID', 'Nama', 'Status', 'Tanggal Pinjam', 'Tanggal Kembali')
+    tbl['columns'] = ('ID', 'Nama', 'LaptopID', 'Brand',  'Tanggal Pinjam', 'Tanggal Kembali')
     tbl.column('#0', width=0, stretch=NO)
     tbl.column('ID', anchor=CENTER, width=80)
-    tbl.column('Nama', anchor=CENTER, width=180)
-    tbl.column('Status', anchor=CENTER, width=100)
+    tbl.column('Nama', anchor=CENTER, width=100)
+    tbl.column('LaptopID', anchor=CENTER, width=100)
+    tbl.column('Brand', anchor=CENTER, width=100)
     tbl.column('Tanggal Pinjam', anchor=CENTER, width=100)
     tbl.column('Tanggal Kembali', anchor=CENTER, width=100)
 
     tbl.heading('#0', text='', anchor=CENTER)
     tbl.heading('ID', text='Id', anchor=CENTER)
     tbl.heading('Nama', text='Nama', anchor=CENTER)
-    tbl.heading('Status', text='Status', anchor=CENTER)
+    tbl.heading('LaptopID', text='LaptopID', anchor=CENTER)
+    tbl.heading('Brand', text='Brand', anchor=CENTER)
     tbl.heading('Tanggal Pinjam', text='Tanggal Pinjam', anchor=CENTER)
     tbl.heading('Tanggal Kembali', text='Tanggal kembali', anchor=CENTER)
 
-    tbl.insert(parent='', index=0, iid="0", text='', values=('1', 'Budi', 'Member', '25/01/2023', '25/01/2023'))
-    tbl.insert(parent='', index=1, iid="1", text='', values=('2', 'Ani', 'Member', '25/01/2023', '25/01/2023'))
-    tbl.insert(parent='', index=2, iid="2", text='', values=('3', 'Bejo', 'Member', '25/01/2023', '25/01/2023'))
-    tbl.insert(parent='', index=3, iid="3", text='', values=('4', 'Tono', 'Member', '25/01/2023', '25/01/2023'))
-    tbl.insert(parent='', index=4, iid="4", text='', values=('5', 'Bambang', 'Member', '25/01/2023', '25/01/2023'))
-    tbl.insert(parent='', index=5, iid="5", text='', values=('6', 'Tina', 'Member', '25/01/2023', '25/01/2023'))
-    tbl.insert(parent='', index=6, iid="6", text='', values=('7', 'Burhan', 'Member', '25/01/2023', '25/01/2023'))
-    tbl.insert(parent='', index=7, iid="7", text='', values=('8', 'Fery', 'Member', '25/01/2023', '25/01/2023'))
-    tbl.insert(parent='', index=8, iid="8", text='', values=('9', 'Rahma', 'Member', '25/01/2023', '25/01/2023'))
-    tbl.insert(parent='', index=9, iid="9", text='', values=('10', 'Intan', 'Member', '25/01/2023', '25/01/2023'))
-    tbl.insert(parent='', index=10, iid="10", text='', values=('11', 'Cika', 'Member', '25/01/2023', '25/01/2023'))
-    tbl.insert(parent='', index=11, iid="11", text='', values=('12', 'Doni', 'Member', '25/01/2023', '25/01/2023'))
-    tbl.insert(parent='', index=12, iid="12", text='', values=('113', 'Rina', 'Member', '25/01/2023', '25/01/2023'))
+    cursor.execute("SELECT * FROM peminjaman_data")
+    all_rows = cursor.fetchall()
+    for i in all_rows:
+        tbl.insert(parent='', index=0, values=(i[0], i[1], i[3], i[4], i[6], i[7]))
+    conn.commit()
     tbl.place(relx=0.52, rely=0.06)
 
     # ##### FOOTER ##### #

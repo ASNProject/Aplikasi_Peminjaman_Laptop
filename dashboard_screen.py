@@ -5,6 +5,7 @@ from PIL import ImageTk, Image
 import customtkinter
 from tkinter import ttk
 import sqlite3
+from random import randint
 
 
 def dashboardScreen():
@@ -138,6 +139,12 @@ def dashboardScreen():
 
     t10 = Label(root, text='Copyright: Aplikasi Peminjaman Laptop 2023', font=("Arial", 12))
     t10.place(relx=0.8, rely=0.96)
+
+    def refresh():
+        # do stuff
+        root.after(1, refresh)  # 5 minutes in milliseconds
+
+    refresh()
 
     root.mainloop()
 

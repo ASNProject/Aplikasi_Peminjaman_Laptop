@@ -1,4 +1,5 @@
 import datetime
+import os
 import tkinter
 from tkinter import *
 from PIL import ImageTk, Image
@@ -193,6 +194,7 @@ b3 = customtkinter.CTkButton(master=root, corner_radius=10, text="PINJAM", heigh
 b3.place(relx=0.73, rely=0.52)
 b4 = customtkinter.CTkButton(master=root, corner_radius=10, text="PRINT", height=40, width=270)
 b4.place(relx=0.73, rely=0.6)
+
 b4 = customtkinter.CTkButton(master=root, corner_radius=10, text="KEMBALI", height=40, width=270,
                              command=root.destroy)
 b4.place(relx=0.73, rely=0.85)
@@ -275,13 +277,13 @@ def scanidlaptop(rfid):
 
 
 def upload_data():
-    s = connection.execute("SELECT * FROM member_data WHERE rfid= ?", (idcard, ))
+    s = connection.execute("SELECT * FROM member_data WHERE rfid= ?", (idcard,))
     all_rows = s.fetchall()
     b = ''
     for i in all_rows:
         b = i[5]
 
-    q = connection.execute("SELECT * FROM laptop_data WHERE rfid= ?", (laptop, ))
+    q = connection.execute("SELECT * FROM laptop_data WHERE rfid= ?", (laptop,))
     all_row = q.fetchall()
     c = ''
     for x in all_row:

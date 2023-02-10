@@ -6,10 +6,20 @@ from PIL import ImageTk, Image
 import customtkinter
 import sqlite3
 import datetime as dt
+import serial
+import time
+import threading
+import continuous_threading
 
 root = Tk()
 database = "database/apl_database.db"
 connection = sqlite3.connect(database)
+
+# ######### SETUP SERIAL COMMUNICATION ######### #
+#ser = serial.Serial(port='/dev/tty.usbmodem1101', baudrate=9600)
+#val1 = 0
+
+#index = []
 
 # ################### SETUP SCREEN ################ #
 root.title('Aplikasi Peminjaman Laptop - Halaman Pinjaman')
@@ -50,7 +60,7 @@ t3.place(relx=0.08, y=70)
 
 # ##### BODY ##### #
 b1 = customtkinter.CTkButton(master=root, corner_radius=10, text="SCAN ID CARD", height=40, width=200,
-                             command=lambda: scanidcard(idcard)
+                             command=lambda: scan_result()
                              )
 b1.place(relx=0.08, rely=0.2)
 
@@ -423,6 +433,31 @@ def failed_upload():
     top.resizable(False, False)
     top.title("Pemberitahuan!")
     t26 = Label(top, text='Maaf data sudah ada di database!\nSilahkan coba lagi!',
+                font=("Arial bold", 14))
+    t26.place(relx=.5, rely=.5, anchor=CENTER)
+
+
+def scan_result():
+    global val1
+    ser_bytes = ser.readline()
+    pieces = [int(s) for s in ser_bytes.split() if s.isdigit()]
+    print(pieces[0])
+
+    top = Toplevel(root)
+
+    top_width = 320
+    top_height = 120
+    # get screen dimension
+    top_screen_width = top.winfo_screenwidth()
+    top_screen_height = top.winfo_screenheight()
+    # find the center point
+    top_center_x = int(top_screen_width / 2 - top_width / 2)
+    top_center_y = int(top_screen_height / 2 - top_height / 2)
+    # set the position of the window to the center of the screen
+    top.geometry(f'{top_width}x{top_height}+{top_center_x}+{top_center_y}')
+    top.resizable(False, False)
+    top.title("SCAN RFID!")
+    t26 = Label(top, text='SILAHKAN SCAN KARTU!',
                 font=("Arial bold", 14))
     t26.place(relx=.5, rely=.5, anchor=CENTER)
 

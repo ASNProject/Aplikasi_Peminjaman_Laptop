@@ -60,7 +60,8 @@ t3.place(relx=0.08, y=70)
 
 # ##### BODY ##### #
 b1 = customtkinter.CTkButton(master=root, corner_radius=10, text="SCAN ID CARD", height=40, width=200,
-                             command=lambda: scan_result()
+                             command=lambda: scanidcard(123)
+                             # scan_result()
                              )
 b1.place(relx=0.08, rely=0.2)
 

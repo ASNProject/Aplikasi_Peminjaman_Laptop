@@ -8,6 +8,7 @@ pip install tk
 pip install future
 pip install customtkinter
 pip install pysqlite3
+pip install pyserial
 ```
 ## Run & Debug
 Clone this project

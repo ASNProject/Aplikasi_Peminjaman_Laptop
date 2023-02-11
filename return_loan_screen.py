@@ -4,10 +4,17 @@ from PIL import ImageTk, Image
 import customtkinter
 import sqlite3
 import datetime as dt
+import serial
 
 root = Tk()
 database = "database/apl_database.db"
 connection = sqlite3.connect(database)
+
+# ######### SETUP SERIAL COMMUNICATION ######### #
+ser = serial.Serial(port='/dev/tty.usbmodem1101', baudrate=9600)
+val1 = 0
+
+index = []
 
 # ################### SETUP SCREEN ################ #
 root.title('Aplikasi Peminjaman Laptop - Halaman Pengembalian')
@@ -45,7 +52,7 @@ t3.place(relx=0.08, y=70)
 
 # ##### BODY ##### #
 b1 = customtkinter.CTkButton(master=root, corner_radius=10, text="SCAN ID CARD", height=40, width=200,
-                             command=lambda: scanidcard(234)
+                             command=lambda: scan_data()
                              )
 b1.place(relx=0.08, rely=0.2)
 
@@ -77,7 +84,7 @@ t13 = Label(root, textvariable=member, font=("Arial", 12))
 t13.place(relx=0.14, rely=0.38)
 
 b2 = customtkinter.CTkButton(master=root, corner_radius=10, text="SCAN ID LAPTOP", height=40, width=200,
-                             command=lambda: scanidlaptop(123))
+                             command=lambda: scan_data_laptop())
 b2.place(relx=0.75, rely=0.2)
 
 t14 = Label(root, text='HASIL SCAN:', font=("Arial bold", 12))
@@ -382,6 +389,33 @@ def done_upload():
     t26 = Label(top, text='Data telah tersimpan!\nTerimakasih!',
                 font=("Arial bold", 14))
     t26.place(relx=.5, rely=.5, anchor=CENTER)
+
+
+def scan_data():
+    global val1
+    RFID_Data = ser.readline()
+    if RFID_Data:
+        RFID_Data = RFID_Data.decode()
+        RFID_Data = RFID_Data.strip()
+        RFID_Data = str(RFID_Data)
+        x = RFID_Data.replace(" ", "")
+        x = x[:5]
+        print(x)
+        scanidcard(int(x))
+
+
+def scan_data_laptop():
+    global val1
+    RFID_Data = ser.readline()
+    if RFID_Data:
+        RFID_Data = RFID_Data.decode()
+        RFID_Data = RFID_Data.strip()
+        RFID_Data = str(RFID_Data)
+        RFID_Data = str(RFID_Data)
+        x = RFID_Data.replace(" ", "")
+        x = x[:5]
+        print(x)
+        scanidlaptop(int(x))
 
 
 root.mainloop()

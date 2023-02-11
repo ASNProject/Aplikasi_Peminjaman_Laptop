@@ -93,7 +93,7 @@ t13 = Label(root, textvariable=member, font=("Arial", 12))
 t13.place(relx=0.14, rely=0.38)
 
 b2 = customtkinter.CTkButton(master=root, corner_radius=10, text="SCAN ID LAPTOP", height=40, width=200,
-                             command=lambda: scanidlaptop(laptop))
+                             command=lambda: scan_data_laptop())
 b2.place(relx=0.75, rely=0.2)
 
 t14 = Label(root, text='HASIL SCAN:', font=("Arial bold", 12))
@@ -458,19 +458,33 @@ def scan_result():
     t26 = Label(top, text='SILAHKAN SCAN KARTU!',
                 font=("Arial bold", 14))
     t26.place(relx=.5, rely=.3, anchor=CENTER)
-    # b1 = customtkinter.CTkButton(master=top, corner_radius=10, text="SCAN ID CARD", height=40, width=200,
-    # command=lambda: scan_result()
-    # scan_result()
-    #                            )
-    # b1.place(relx=0.3, rely=.5)
 
 
 def scan_data():
     global val1
-    ser_bytes = ser.readline()
-    ser_bytes = ser_bytes.decode("utf-8")
-    print(ser_bytes.rstrip())
-    scanidcard(int(ser_bytes.rstrip()))
+    RFID_Data = ser.readline()
+    if RFID_Data:
+        RFID_Data = RFID_Data.decode()
+        RFID_Data = RFID_Data.strip()
+        RFID_Data = str(RFID_Data)
+        x = RFID_Data.replace(" ", "")
+        x = x[:5]
+        print(x)
+        scanidcard(int(x))
+
+
+def scan_data_laptop():
+    global val1
+    RFID_Data = ser.readline()
+    if RFID_Data:
+        RFID_Data = RFID_Data.decode()
+        RFID_Data = RFID_Data.strip()
+        RFID_Data = str(RFID_Data)
+        RFID_Data = str(RFID_Data)
+        x = RFID_Data.replace(" ", "")
+        x = x[:5]
+        print(x)
+        scanidlaptop(int(x))
 
 
 root.mainloop()

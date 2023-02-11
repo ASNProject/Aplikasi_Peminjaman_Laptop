@@ -480,7 +480,6 @@ def scan_data_laptop():
         RFID_Data = RFID_Data.decode()
         RFID_Data = RFID_Data.strip()
         RFID_Data = str(RFID_Data)
-        RFID_Data = str(RFID_Data)
         x = RFID_Data.replace(" ", "")
         x = x[:5]
         print(x)

@@ -16,10 +16,10 @@ database = "database/apl_database.db"
 connection = sqlite3.connect(database)
 
 # ######### SETUP SERIAL COMMUNICATION ######### #
-#ser = serial.Serial(port='/dev/tty.usbmodem1101', baudrate=9600)
-#val1 = 0
+ser = serial.Serial(port='/dev/tty.usbmodem1101', baudrate=9600)
+val1 = 0
 
-#index = []
+index = []
 
 # ################### SETUP SCREEN ################ #
 root.title('Aplikasi Peminjaman Laptop - Halaman Pinjaman')
@@ -35,8 +35,8 @@ center_y = int(root_screen_height / 2 - root_height / 2)
 root.geometry(f'{root_width}x{root_height}+{center_x}+{center_y}')
 root.resizable(False, False)
 
-idcard = 123
-laptop = 321
+idcard = 234
+laptop = 123
 
 # ##################### UI DESIGN ##################### #
 # ##### HEADER ##### #
@@ -60,7 +60,7 @@ t3.place(relx=0.08, y=70)
 
 # ##### BODY ##### #
 b1 = customtkinter.CTkButton(master=root, corner_radius=10, text="SCAN ID CARD", height=40, width=200,
-                             command=lambda: scanidcard(123)
+                             command=lambda: scan_data()
                              # scan_result()
                              )
 b1.place(relx=0.08, rely=0.2)
@@ -440,14 +440,11 @@ def failed_upload():
 
 def scan_result():
     global val1
-    ser_bytes = ser.readline()
-    pieces = [int(s) for s in ser_bytes.split() if s.isdigit()]
-    print(pieces[0])
 
     top = Toplevel(root)
 
     top_width = 320
-    top_height = 120
+    top_height = 200
     # get screen dimension
     top_screen_width = top.winfo_screenwidth()
     top_screen_height = top.winfo_screenheight()
@@ -460,7 +457,20 @@ def scan_result():
     top.title("SCAN RFID!")
     t26 = Label(top, text='SILAHKAN SCAN KARTU!',
                 font=("Arial bold", 14))
-    t26.place(relx=.5, rely=.5, anchor=CENTER)
+    t26.place(relx=.5, rely=.3, anchor=CENTER)
+    # b1 = customtkinter.CTkButton(master=top, corner_radius=10, text="SCAN ID CARD", height=40, width=200,
+    # command=lambda: scan_result()
+    # scan_result()
+    #                            )
+    # b1.place(relx=0.3, rely=.5)
+
+
+def scan_data():
+    global val1
+    ser_bytes = ser.readline()
+    ser_bytes = ser_bytes.decode("utf-8")
+    print(ser_bytes.rstrip())
+    scanidcard(int(ser_bytes.rstrip()))
 
 
 root.mainloop()
